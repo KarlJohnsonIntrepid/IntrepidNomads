@@ -1,0 +1,99 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+model Author {
+  authorID   Int     @id(map: "PK_Author") @default(autoincrement())
+  authorName String? @db.VarChar(50)
+  blog       Blog[]
+}
+
+model Blog {
+  id          Int       @id(map: "PK_Blog") @default(autoincrement()) @map("BlogId")
+  title           String?   @db.VarChar(100) 
+  dateCreated     DateTime? @db.DateTime
+  content         String?   @db.VarChar(Max)
+  authorId        Int?
+  countryId       Int?
+  categoryId      Int?
+  date            DateTime? @db.DateTime
+  categoryImageId Int?
+  isVisible       Boolean?
+  isFullScreen    Boolean   @default(false, map: "DF_Blog_IsFullScreen")
+  showInSlideShow Boolean   @default(false, map: "DF_Blog_ShowInSlideShow")
+  seoTitle        String?   @db.VarChar(64) 
+  seoDescription  String?   @db.VarChar(160)
+  niceDescription String?   @db.VarChar(Max)
+  showPhotos      Boolean   @default(true, map: "DF_Blog_ShowPhotos")
+  author          Author?   @relation(fields: [authorId], references: [authorID], onDelete: NoAction, onUpdate: NoAction, map: "FK_Blog_Author")
+  category        Category? @relation(fields: [categoryId], references: [categoryID], onDelete: NoAction, onUpdate: NoAction, map: "FK_Blog_Category")
+  country         Country?  @relation(fields: [countryId], references: [countryID], onDelete: NoAction, onUpdate: NoAction, map: "FK_Blog_Country")
+}
+
+model Categories {
+  categoryId          Int      @id(map: "PK_dbo.Categories") @default(autoincrement())
+  categoryDescription String?  @db.NVarChar(100)
+  categoryInformation String?  @db.NVarChar(Max)
+  reverseDateOrder    Boolean?
+  isFeature           Boolean?
+  parentCategoryId    Int?
+  parentCountryId     Int?
+  seoTitle            String?  @db.NVarChar(64)
+  seoDescription      String?  @db.NVarChar(160)
+  showInMenu          Boolean
+  categoryImageId     Int
+}
+
+model Category {
+  categoryID          Int      @id(map: "PK_Category") @default(autoincrement())
+  categoryDescription String   @db.VarChar(100)
+  categoryInformation String?  @db.VarChar(Max)
+  reverseDateOrder    Boolean?
+  isFeature           Boolean?
+  parentCategoryID    Int?
+  parentCountryID     Int?
+  seoTitle            String?  @db.VarChar(65)
+  seoDescription      String?  @db.VarChar(160)
+  showInMenu          Boolean  @default(false, map: "ShowInMenu")
+  categoryImageID     Int?
+  blog                Blog[]
+}
+
+model Continent {
+  ContinentID          Int       @id(map: "PK_Continent") @default(autoincrement())
+  ContinentDescription String?   @db.VarChar(100)
+  Country              Country[]
+}
+
+model Country {
+  countryID          Int        @id(map: "PK_Country") @default(autoincrement())
+  countryDescription String?    @db.VarChar(200)
+  continentID        Int?
+  countryInformation String?    @db.VarChar(Max)
+  seoTitle           String?    @db.VarChar(64)
+  seoDescription     String?    @db.VarChar(160)
+  countryImageID     Int?
+  blog               Blog[]
+  continent          Continent? @relation(fields: [continentID], references: [ContinentID], onDelete: NoAction, onUpdate: NoAction, map: "FK_Country_Continent")
+}
+
+model Location {
+  locationID Int       @id(map: "PK_Location") @default(autoincrement())
+  latitude   Decimal?  @db.Decimal(10, 7)
+  longitude  Decimal?  @db.Decimal(10, 7)
+  location   String?   @db.VarChar(1000)
+  date       DateTime? @db.DateTime
+}
+
+model UploadedImages {
+  imageID          Int      @id(map: "PK_UploadedImages") @default(autoincrement())
+  imageDescription String   @db.VarChar(200)
+  imageCaption     String?  @db.VarChar(Max)
+  blogID           Int?
+  dateUploaded     DateTime @db.DateTime
+}

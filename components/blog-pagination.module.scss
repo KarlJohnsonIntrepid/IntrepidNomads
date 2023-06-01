@@ -1,0 +1,27 @@
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 80px;
+  width: 100%;
+
+  a {
+    color: rgb(59, 117, 59, 0.5);
+    font-size: 1.5rem;
+
+    &:hover {
+      color: rgb(59, 117, 59, 1);
+      cursor: pointer;
+      animation: fadeOut 2s;
+      text-decoration: none;
+    }
+
+    @keyframes fadeOut {
+      0% {
+        color: rgb(59, 117, 59, 0.5);
+      }
+      100% {
+        color: rgb(59, 117, 59, 1);
+      }
+    }
+  }
+}

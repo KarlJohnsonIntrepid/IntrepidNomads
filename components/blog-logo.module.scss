@@ -1,0 +1,43 @@
+.details {
+  align-items: center;
+  display: flex;
+  z-index: 10;
+
+  label {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-left: 8px;
+  }
+
+  .logo {
+    background-color: rgb(59, 117, 59);
+    border-radius: 8px;
+    height: 60px;
+    margin-right: 10px;
+    padding: 10px;
+
+    &:hover {
+      background-color: rgb(59, 117, 59, 0.9);
+    }
+  }
+
+  .text {
+    font-weight: 500;
+
+    a:hover {
+      text-decoration: none;
+    }
+  }
+
+  .shimmer {
+    -webkit-mask: linear-gradient(-60deg, #000 30%, #0005, #000 70%) right/300%
+      100%;
+    animation: shimmer 4s infinite;
+  }
+
+  @keyframes shimmer {
+    100% {
+      -webkit-mask-position: left;
+    }
+  }
+}

@@ -1,0 +1,66 @@
+.title {
+  display: flex;
+  padding: 40px;
+
+  h2 {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 3px solid white;
+    color: #042019;
+    font-size: 2.6rem;
+    margin-top: 120px;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 50px;
+    position: relative;
+    z-index: 3;
+  }
+
+  &.hover {
+    &:hover {
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    h2 {
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        animation: fadeOut 1.5s;
+        text-decoration: none;
+      }
+
+      @keyframes fadeOut {
+        0% {
+          background-color: rgba(255, 255, 255, 0.8);
+        }
+        100% {
+          background-color: rgba(255, 255, 255, 0.5);
+        }
+      }
+    }
+  }
+}
+
+.start {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  z-index: 2;
+
+  > div {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+
+    border-bottom: 15px solid rgb(255, 255, 255, 0.5);
+
+    &:hover {
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 15px solid rgb(255, 255, 255);
+      cursor: pointer;
+    }
+  }
+}

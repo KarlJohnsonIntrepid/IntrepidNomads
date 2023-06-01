@@ -1,0 +1,155 @@
+.container {
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+
+  .country {
+    position: relative;
+  }
+
+  .country:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    // Ultra wide
+    @media (min-width: 2000px) {
+      background-size: contain;
+      background-size: 60% 100%;
+    }
+  }
+
+  //USA
+  .country:nth-child(2):before {
+    background-image: url(/images/Monument-Valley-15.webp);
+  }
+
+  //Mexico
+  .country:nth-child(3):before {
+    background-image: url(/images/isla-Holbox-whaleshark-tour-21.webp);
+  }
+
+  //Belize
+  .country:nth-child(4):before {
+    background-image: url("/images/atm-cave-in-belize-(1).webp");
+  }
+
+  //Guatemala
+  .country:nth-child(5):before {
+    background-image: url(/images/semuc-champey-36.webp);
+  }
+
+  //El Salvador
+  .country:nth-child(6):before {
+    background-image: url(/images/honduras-2.webp);
+    filter: sepia(0.4);
+  }
+
+  //Nicaragua
+  .country:nth-child(7):before {
+    background-image: url(/images/Corn-Islands-43.webp);
+  }
+
+  //Costa Rica
+  .country:nth-child(8):before {
+    background-image: url(/images/blue-morpho.webp);
+  }
+
+  //Panama
+  .country:nth-child(9):before {
+    background-image: url(/images/panama-city-day1-12.webp);
+  }
+
+  //Columbia
+  .country:nth-child(10):before {
+    background-image: url(/images/Bogota-8.webp);
+  }
+
+  //Brazil
+  .country:nth-child(11):before {
+    background-image: url(/images/Igassu-Falls-29.webp);
+  }
+
+  //Uruguay
+  .country:nth-child(12):before {
+    background-image: url(/images/colonia-4.webp);
+  }
+
+  //Argentina
+  .country:nth-child(13):before {
+    background-image: url(/images/el-chalten-31.webp);
+  }
+
+  //Chilie
+  .country:nth-child(14):before {
+    background-image: url(/images/SanPedroDeAtacama-36.webp);
+  }
+
+  //Boliva
+  .country:nth-child(15):before {
+    background-image: url(/images/sanpedrotounyuni-day1-12.webp);
+  }
+
+  //Peru
+  .country:nth-child(16):before {
+    background-image: url(/images/cuscoandmachupichu-29.webp);
+  }
+
+  //Romainia
+  .country:nth-child(17):before {
+    background-image: url(/images/Romania-27.webp);
+  }
+
+  //India
+  .country:nth-child(18):before {
+    background-image: url(/images/Kerala-Beaches-2.webp);
+  }
+
+  //Malaysia
+  .country:nth-child(19):before {
+    background-image: url(/images/Borneo-Jungle-Lodge-23.webp);
+  }
+
+  //Singapore
+  .country:nth-child(20):before {
+    background-image: url(/images/Singapore-10.webp);
+  }
+
+  //Planing
+  .country:nth-child(21):before {
+    background-image: url(/images/TorresDelPaine-Day7-8.webp);
+  }
+
+  //Leaving the UK
+  .country:nth-child(22):before {
+    background-image: url(/images/Perritio-Merrano-13.webp);
+  }
+
+  //Base Camp
+  .country:nth-child(23):before {
+    background-image: url(/images/Day-11-EBC-Everest-Base-Camp.webp);
+  }
+
+  //Italy
+  .country:nth-child(24):before {
+    background-image: url(/images/Petra-Stairs-Stairway.webp);
+  }
+
+  //Morroco
+  .country:nth-child(25):before {
+    background-image: url(/images/Morroco.webp);
+  }
+}
